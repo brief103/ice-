@@ -1,0 +1,17 @@
+C:\Users\ice\Desktop\工作\Visual Stidio\WPF\取色器\obj\Debug\取色器.csproj.SuggestedBindingRedirects.cache
+C:\Users\ice\Desktop\工作\Visual Stidio\WPF\取色器\obj\Debug\MainWindow.g.cs
+C:\Users\ice\Desktop\工作\Visual Stidio\WPF\取色器\obj\Debug\App.g.cs
+C:\Users\ice\Desktop\工作\Visual Stidio\WPF\取色器\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\ice\Desktop\工作\Visual Stidio\WPF\取色器\obj\Debug\取色器_MarkupCompile.cache
+C:\Users\ice\Desktop\工作\Visual Stidio\WPF\取色器\obj\Debug\取色器_MarkupCompile.lref
+C:\Users\ice\Desktop\工作\Visual Stidio\WPF\取色器\obj\Debug\取色器.exe
+C:\Users\ice\Desktop\工作\Visual Stidio\WPF\取色器\obj\Debug\取色器.pdb
+C:\Users\ice\Desktop\工作\Visual Stidio\WPF\取色器\bin\Debug\取色器.exe.config
+C:\Users\ice\Desktop\工作\Visual Stidio\WPF\取色器\bin\Debug\取色器.exe
+C:\Users\ice\Desktop\工作\Visual Stidio\WPF\取色器\bin\Debug\取色器.pdb
+C:\Users\ice\Desktop\工作\Visual Stidio\WPF\取色器\obj\Debug\MainWindow.baml
+C:\Users\ice\Desktop\工作\Visual Stidio\WPF\取色器\obj\Debug\取色器.g.resources
+C:\Users\ice\Desktop\工作\Visual Stidio\WPF\取色器\obj\Debug\取色器.Properties.Resources.resources
+C:\Users\ice\Desktop\工作\Visual Stidio\WPF\取色器\obj\Debug\取色器.csproj.GenerateResource.cache
+C:\Users\ice\Desktop\工作\Visual Stidio\WPF\取色器\obj\Debug\取色器.csproj.CoreCompileInputs.cache
+C:\Users\ice\Desktop\工作\Visual Stidio\WPF\取色器\obj\Debug\取色器.csproj.AssemblyReference.cache

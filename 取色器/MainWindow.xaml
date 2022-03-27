@@ -1,0 +1,161 @@
+﻿<Window x:Class="取色器.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local1="clr-namespace:取色器.ViewModel.Convert" 
+        xmlns:viewmodel="clr-namespace:取色器.ViewModel"
+        mc:Ignorable="d"
+        Title="取色器" Height="450" Width="440">
+    <Window.Resources>
+        <local1:StringBrushConvert x:Key="colorConverter"/>
+        <local1:ColorToBrushConverter x:Key="colorBrushConverter"/>
+        <local1:String16BrushConverter x:Key="color16BrushConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.8*"/>
+                <RowDefinition Height="1.2*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <GroupBox Header="鼠标位置" Grid.Row="0" Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="X:" Grid.Column="0" />
+                    <Label Content="Y:" Grid.Column="2" />
+                    <TextBlock Text="{Binding XPoint,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"  Grid.Column="1"/>
+                    <TextBlock Text="{Binding YPoint,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"  Grid.Column="3"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="颜色显示" Grid.Row="1" Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.7*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="RGB:" Grid.Row="0" Grid.Column="0" />
+                    <Label Content="十六进制:" Grid.Row="1" Grid.Column="0" />
+                    <TextBox Text="{Binding ColorModels,Mode=OneWay,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource colorConverter}}" Grid.Row="0" Grid.Column="1"/>
+                    <TextBox Text="{Binding ColorModels,Mode=OneWay,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource color16BrushConverter}}" Grid.Row="1" Grid.Column="1"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="调色板" Grid.Row="2" Margin="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Content="R:"/>
+                        <Slider Grid.Row="0" Grid.Column="1" Name="sliderRed" Margin="0 4"
+                                Value="{Binding ColorModels.R,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                Minimum="0"
+                                Maximum="255"/>
+                        <TextBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" 
+                                 Text="{Binding ElementName=sliderRed,Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Content="G:"/>
+                        <Slider Grid.Row="0" Grid.Column="1" Name="sliderGreen" Margin=" 0 4"
+                                Value="{Binding ColorModels.G,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                Minimum="0"
+                                Maximum="255"/>
+                        <TextBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" 
+                                 Text="{Binding ElementName=sliderGreen,Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Content="B:"/>
+                        <Slider Grid.Row="0" Grid.Column="1" Name="sliderBlue" Margin=" 0 4"
+                                Value="{Binding ColorModels.B,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                Minimum="0"
+                                Maximum="255"/>
+                        <TextBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" 
+                                 Text="{Binding ElementName=sliderBlue,Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Content="透明度:"/>
+                        <Slider Grid.Row="0" Grid.Column="1" Name="sliderAlpha" Margin=" 0 4"
+                                Value="{Binding ColorModels.A,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                Minimum="0"
+                                Maximum="255"/>
+                        <TextBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" 
+                                 Text="{Binding ElementName=sliderAlpha,Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                </Grid>
+            </GroupBox>
+        </Grid>
+        <Grid Grid.Column ="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Content="取色" Background="White" Margin="5"
+                    Command="{Binding GetScreenPoinCommand}"/>
+            <Rectangle Grid.Row="1" Fill="{Binding ColorModels,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource colorBrushConverter }}">
+            </Rectangle>
+            <ListView Grid.Row="2"  
+                      ItemsSource="{Binding SolidColorBrushCollection,UpdateSourceTrigger=PropertyChanged,Mode=OneWay}"
+                      SelectedItem="{Binding ColorModels,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <Rectangle Fill="{Binding ColorModels,Mode=OneWay,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource colorBrushConverter }}"/>
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+       
+
+    </Grid>
+</Window>
